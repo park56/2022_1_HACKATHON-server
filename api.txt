@@ -1,0 +1,44 @@
+회원 가입 : /signup - Post
+다 필수
+c.JSON(200, gin.H{
+		"message": "user Create success",
+	})
+    
+
+로그인 : /login - Post
+id, password 
+c.JSON(200, gin.H{ // 클라이언트로 id, token 보내줌
+		"message": "login success",
+		"id":      user.Id,				// id
+		"token":   accessToken,			// 토큰 발금
+	})
+
+
+프로필 편집 : /edituser - Post
+그냥 모든 정보를 넘기면 됨
+c.JSON(200, gin.H{
+		"message": "editUser edit error",
+	})
+
+
+이미지 업로드  : /uploadimg - Post
+body에 form-data로 key = "file", value = 파일(사진) -> header를 id로 바꿔서
+c.JSON(200, gin.H{
+		"message": "Upload IMG success",
+	})
+
+
+게시판 업로드 : /uploadcontent - Post
+userid, contents 	contents에 내용
+	c.JSON(200, gin.H{
+		"message": "upload content success",
+	})
+
+
+이미지 가져오기 : serverip:8080/img/id+png
+학생 리스트 가져오기 : /viewstudent - GET
+졸업생 리스트 가져오기 : /viewgraduate - GET
+게시판 리스트 가져오기 : /viewboard - GET
+
+내 게시판 가져오기 : /viewmyboard - Post
+id
